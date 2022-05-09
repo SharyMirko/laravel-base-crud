@@ -13,7 +13,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $item->title }}</h5>
                             <p class="card-text">{{ $item->description }}</p>
-                            <a href="#" class="btn btn-primary">More please</a>
+                            <a href='comics/{{ $item->id }}' class="btn btn-primary">More please</a>
                         </div>
                     </div>
                 </div>
