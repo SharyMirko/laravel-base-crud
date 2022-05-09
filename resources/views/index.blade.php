@@ -4,8 +4,21 @@
 @endsection
 
 @section('content')
-    @foreach ($comics as $item)
-        {{ $item->title }}
-    @endforeach
-    {{ $comics->links() }}
+    <div class="container">
+        <div class="row">
+            @foreach ($comics as $item)
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{ $item->thumb }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $item->title }}</h5>
+                            <p class="card-text">{{ $item->description }}</p>
+                            <a href="#" class="btn btn-primary">More please</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        {{ $comics->links() }}
+    </div>
 @endsection

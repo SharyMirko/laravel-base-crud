@@ -45,21 +45,24 @@ class ComicsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Comics  $comics
+     * @param  \App\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function show(Comics $comics)
+    public function show(Comic $comic)
     {
-        //
+        return view('comics.show',[
+            'pageTitle' => $comic->title,
+            'comics' => $comic,
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Comics  $comics
+     * @param  \App\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comics $comics)
+    public function edit(Comic $comic)
     {
         //
     }
@@ -68,10 +71,10 @@ class ComicsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Comics  $comics
+     * @param  \App\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comics $comics)
+    public function update(Request $request, Comic $comic)
     {
         //
     }
@@ -79,10 +82,10 @@ class ComicsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Comics  $comics
+     * @param  \App\Comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comics $comics)
+    public function destroy(Comic $comics)
     {
         //
     }
