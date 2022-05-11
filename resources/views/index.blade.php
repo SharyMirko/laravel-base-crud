@@ -19,6 +19,24 @@
                 </div>
             @endforeach
         </div>
-        {{ $comics->links() }}
+        @if ($comics->hasPages())
+            <nav>
+                <ul class="pagination">
+                    {{-- Previous Page Link --}}
+                    @if ($comics->onFirstPage())
+                        <li class="disabled" aria-disabled="true"><span>@lang('pagination.previous')</span></li>
+                    @else
+                        <li><a href="{{ $comics->previousPageUrl() }}" rel="prev">@lang('pagination.previous')</a></li>
+                    @endif
+
+                    {{-- Next Page Link --}}
+                    @if ($comics->hasMorePages())
+                        <li><a href="{{ $comics->nextPageUrl() }}" rel="next">@lang('pagination.next')</a></li>
+                    @else
+                        <li class="disabled" aria-disabled="true"><span>@lang('pagination.next')</span></li>
+                    @endif
+                </ul>
+            </nav>
+        @endif
     </div>
 @endsection
