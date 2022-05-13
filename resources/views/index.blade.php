@@ -6,14 +6,20 @@
 @section('content')
     <div class="container">
         <div class="row">
-            @foreach ($comics as $item)
+            @foreach ($comics as $comic)
                 <div class="col">
                     <div class="card" style="width: 18rem;">
-                        <img src="{{ $item->thumb }}" class="card-img-top" alt="...">
+                        <img src="{{ $comic->thumb }}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">{{ $item->title }}</h5>
-                            <p class="card-text">{{ $item->description }}</p>
-                            <a href='comics/{{ $item->id }}' class="btn btn-primary">More please</a>
+                            <h5 class="card-title">{{ $comic->title }}</h5>
+                            <p class="card-text">{{ $comic->description }}</p>
+                            <a href='comics/{{ $comic->id }}' class="btn btn-primary">More please</a>
+                            <a href="comics/{{ $comic->id }}/edit">edita</a>
+                            <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button>delete</button>
+                            </form>
                         </div>
                     </div>
                 </div>
